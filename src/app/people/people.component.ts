@@ -3,6 +3,7 @@ import { ApiService } from '../shared/services/api.service';
 import { People } from '../shared/models/people.model';
 import { PageEvent } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FavoritesService } from '../shared/services/favorites.service';
 
 @Component({
   selector: 'app-people',
@@ -21,7 +22,7 @@ export class PeopleComponent implements OnInit {
   searchForm: FormGroup;
   isSearching: boolean = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private favoritesService: FavoritesService) { }
 
   ngOnInit() {
     this.createSearchForm();
@@ -50,6 +51,14 @@ export class PeopleComponent implements OnInit {
     this.page = evt.pageIndex + 1;
 
     this.loadPeople();
+  }
+
+  onClickFavorite(person: People) {
+    if (this.favoritesService.has(person.url)) {
+      this.favoritesService.remove(person.url);
+    } else {
+      this.favoritesService.add(person.url);
+    }
   }
 
   onSubmitForm() {

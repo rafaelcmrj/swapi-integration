@@ -6,6 +6,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ObserversModule } from '@angular/cdk/observers';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HomeWorldPipe } from './pipes/homeworld.pipe';
+import { FavoritePipe } from './pipes/favorite.pipe';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { HomeWorldPipe } from './pipes/homeworld.pipe';
     MatButton,
     NavbarComponent,
     FavoritesComponent,
-    HomeWorldPipe
+    HomeWorldPipe,
+    FavoritePipe
   ],
   exports: [
     MatList,
@@ -50,7 +52,8 @@ import { HomeWorldPipe } from './pipes/homeworld.pipe';
     MatPaginator,
     MatButton,
     NavbarComponent,
-    HomeWorldPipe
+    HomeWorldPipe,
+    FavoritePipe
   ]
 })
 export class SharedModule { }
