@@ -24,4 +24,4 @@
   </mat-list-item>
 </mat-list>
 
-<mat-paginator *ngIf="pageLength > pageSize" [length]="pageLength" [pageSize]="pageSize" (page)="onClickPagination($event)"></mat-paginator>
+<mat-paginator *ngIf="pageLength > pageSize" showFirstLastButtons="true" hidePageSize="true" [length]="pageLength" [pageSize]="pageSize" (page)="onClickPagination($event)"></mat-paginator>
