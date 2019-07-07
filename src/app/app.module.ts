@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PeopleComponent } from './people/people.component';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { Angular2SwapiModule } from 'angular2-swapi';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,10 @@ import { SharedModule } from './shared/shared.module';
     PeopleComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    Angular2SwapiModule,
     SharedModule,
     AppRoutingModule
   ],
