@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ApiService } from '../shared/services/api.service';
 import { People } from '../shared/models/people.model';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-people',
@@ -15,15 +14,24 @@ export class PeopleComponent implements OnInit {
 
   pageLength: number = 0;
   pageSize: number = 10;
+  page: number = 1;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    //this.people = this.swapiService.getPeople();
-    this.apiService.getPeople().subscribe((request) => {
+    this.loadPeople();
+  }
+
+  loadPeople() {
+    this.apiService.getPeople(this.page).subscribe((request) => {
       this.pageLength = request.count;
       this.people = request.results;
     });
   }
 
+  onClickPagination(evt: PageEvent) {
+    this.page = evt.pageIndex + 1;
+
+    this.loadPeople();
+  }
 }
