@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoritesService } from '../../services/favorites.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  totalItems: number = 0;
+
+  constructor(private favoritesService: FavoritesService) { }
 
   ngOnInit() {
+    this.favoritesService.total.subscribe(total => {
+      this.totalItems = total;
+    })
   }
 
 }
