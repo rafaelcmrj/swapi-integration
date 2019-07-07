@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { PeopleComponent } from './people/people.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { Angular2SwapiModule } from 'angular2-swapi';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { Angular2SwapiModule } from 'angular2-swapi';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    Angular2SwapiModule,
     SharedModule,
     AppRoutingModule
   ],

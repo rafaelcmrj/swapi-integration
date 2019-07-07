@@ -1,5 +1,5 @@
 <mat-list dense role="list">
-  <mat-list-item role="listitem" *ngFor="let person of people | async">
+  <mat-list-item role="listitem" *ngFor="let person of people">
       <h3 matLine>{{ person.name }}</h3>
       <p matLine>
         {{ person.birth_year }} ({{ (person.homeworld | homeworld | async)?.name }})
@@ -8,4 +8,4 @@
   </mat-list-item>
 </mat-list>
 
-<mat-paginator></mat-paginator>
+<mat-paginator [length]="pageLength" [pageSize]="pageSize"></mat-paginator>

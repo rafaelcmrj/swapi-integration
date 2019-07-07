@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Angular2SwapiService, People } from 'angular2-swapi';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ApiService } from '../shared/services/api.service';
+import { People } from '../shared/models/people.model';
 
 @Component({
   selector: 'app-people',
@@ -10,12 +11,19 @@ import { map } from 'rxjs/operators';
 })
 export class PeopleComponent implements OnInit {
 
-  people: Observable<People[]>;
+  people: People[];
 
-  constructor(private swapiService: Angular2SwapiService) { }
+  pageLength: number = 0;
+  pageSize: number = 10;
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.people = this.swapiService.getPeople();
+    //this.people = this.swapiService.getPeople();
+    this.apiService.getPeople().subscribe((request) => {
+      this.pageLength = request.count;
+      this.people = request.results;
+    });
   }
 
 }
