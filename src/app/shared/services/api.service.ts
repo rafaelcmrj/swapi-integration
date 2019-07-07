@@ -15,15 +15,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * Add page value url param
-   */
   getByPage(page: number): string {
     if (page) { return '&page=' + page; } else { return ''; }
   }
 
-  getPeople(page ?: number): Observable<PeopleRequest> {
-    return this.http.get<PeopleRequest>(`${this.swapiUrl}people?format=json${this.getByPage(page)}`).pipe(
+  filterBySearch(search: string): string {
+    if (search) { return '&search=' + search; } else { return ''; }
+  }
+
+  getPeople(page ?: number, search?: string): Observable<PeopleRequest> {
+    return this.http.get<PeopleRequest>(`${this.swapiUrl}people?format=json${this.getByPage(page)}${this.filterBySearch(search)}`).pipe(
       catchError(this.handleError)
     );
   }

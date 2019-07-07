@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbar, MatIcon, MatToolbarRow, MatBadge, MatList, MatListItem, MatDivider, MatRipple, MatListAvatarCssMatStyler, MatLine, MatPaginator, MatSelect, MatFormField, MatOption, MatPseudoCheckbox, MatTooltip, MatTooltipModule } from '@angular/material';
+import { MatToolbar, MatIcon, MatToolbarRow, MatBadge, MatList, MatListItem, MatDivider, MatRipple, MatListAvatarCssMatStyler, MatLine, MatPaginator, MatSelect, MatFormField, MatOption, MatPseudoCheckbox, MatTooltip, MatTooltipModule, MatLabel, MatFormFieldModule, MatInputModule, MatInput, MatSuffix, MatButton } from '@angular/material';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ObserversModule } from '@angular/cdk/observers';
@@ -13,6 +13,8 @@ import { HomeWorldPipe } from './pipes/homeworld.pipe';
     ObserversModule,
     OverlayModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     MatToolbar,
@@ -25,10 +27,10 @@ import { HomeWorldPipe } from './pipes/homeworld.pipe';
     MatRipple,
     MatListAvatarCssMatStyler,
     MatPseudoCheckbox,
-    MatFormField,
     MatSelect,
     MatOption,
     MatPaginator,
+    MatButton,
     NavbarComponent,
     FavoritesComponent,
     HomeWorldPipe
@@ -41,7 +43,12 @@ import { HomeWorldPipe } from './pipes/homeworld.pipe';
     MatIcon,
     MatListAvatarCssMatStyler,
     MatTooltip,
+    MatLabel,
+    MatFormField,
+    MatInput,
+    MatSuffix,
     MatPaginator,
+    MatButton,
     NavbarComponent,
     HomeWorldPipe
   ]
