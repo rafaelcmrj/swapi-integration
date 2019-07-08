@@ -42,4 +42,8 @@ export class FavoritesService {
     const items = this.getItems();
     return items.has(personID);
   }
+
+  updateOrder(items: Array<string>) {
+    localStorage.setItem(this.STORAGE_KEY, items.join(','));
+  }
 }

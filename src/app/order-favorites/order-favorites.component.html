@@ -1,0 +1,9 @@
+<button mat-button mat-flat-button [routerLink]="['/']">
+    <mat-icon aria-hidden="false" aria-label="Back">arrow_back_ios</mat-icon> <span>Back</span>
+</button>
+
+<mat-list dense role="list" cdkDropList (cdkDropListDropped)="drop($event)">
+    <ng-container *ngFor="let item of items">
+        <app-person [person]="item | person | async" cdkDrag></app-person>
+    </ng-container>
+</mat-list>

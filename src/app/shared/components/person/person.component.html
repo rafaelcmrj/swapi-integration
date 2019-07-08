@@ -1,0 +1,9 @@
+<mat-list-item role="listitem" class="person-item" (click)="onClickFavorite(person)">
+    <h3 matLine>{{ person?.name }}</h3>
+    <p matLine>
+    {{ person?.birth_year }} ({{ (person?.homeworld | homeworld | async)?.name }})
+    </p>
+    <mat-icon *ngIf="!(person?.url | favorite | async)" aria-hidden="false" aria-label="Favorite" matBadgeColor="warn">favorite_border</mat-icon>
+    <mat-icon *ngIf="person?.url | favorite | async" aria-hidden="false" aria-label="Favorited" matBadgeColor="warn">favorite</mat-icon>
+    <mat-divider></mat-divider>
+</mat-list-item>

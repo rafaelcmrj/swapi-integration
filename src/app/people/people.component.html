@@ -15,15 +15,9 @@
 </form>
 
 <mat-list dense role="list">
-  <mat-list-item role="listitem" *ngFor="let person of people" (click)="onClickFavorite(person)">
-      <h3 matLine>{{ person.name }}</h3>
-      <p matLine>
-        {{ person.birth_year }} ({{ (person.homeworld | homeworld | async)?.name }})
-      </p>
-      <mat-icon *ngIf="!(person.url | favorite | async)" aria-hidden="false" aria-label="Favorite" matBadgeColor="warn">favorite_border</mat-icon>
-      <mat-icon *ngIf="person.url | favorite | async" aria-hidden="false" aria-label="Favorited" matBadgeColor="warn">favorite</mat-icon>
-      <mat-divider></mat-divider>
-  </mat-list-item>
+  <ng-container *ngFor="let person of people">
+      <app-person [person]="person"></app-person>
+  </ng-container>
 </mat-list>
 
 <mat-paginator *ngIf="pageLength > pageSize" showFirstLastButtons="true" hidePageSize="true" [length]="pageLength" [pageSize]="pageSize" (page)="onClickPagination($event)"></mat-paginator>

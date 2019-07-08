@@ -8,11 +8,15 @@ import { PeopleComponent } from './people/people.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderFavoritesComponent } from './order-favorites/order-favorites.component';
+import { RouterModule } from '@angular/router';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PeopleComponent
+    PeopleComponent,
+    OrderFavoritesComponent,
   ],
   imports: [
     HttpClientModule,
@@ -20,6 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+    DragDropModule,
     SharedModule,
     AppRoutingModule
   ],

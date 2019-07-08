@@ -7,10 +7,14 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HomeWorldPipe } from './pipes/homeworld.pipe';
 import { FavoritePipe } from './pipes/favorite.pipe';
+import { RouterModule } from '@angular/router';
+import { PersonComponent } from './components/person/person.component';
+import { PersonPipe } from './pipes/person.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ObserversModule,
     OverlayModule,
     MatTooltipModule,
@@ -26,7 +30,6 @@ import { FavoritePipe } from './pipes/favorite.pipe';
     MatListItem,
     MatDivider,
     MatRipple,
-    MatListAvatarCssMatStyler,
     MatPseudoCheckbox,
     MatSelect,
     MatOption,
@@ -35,7 +38,9 @@ import { FavoritePipe } from './pipes/favorite.pipe';
     NavbarComponent,
     FavoritesComponent,
     HomeWorldPipe,
-    FavoritePipe
+    FavoritePipe,
+    PersonComponent,
+    PersonPipe
   ],
   exports: [
     MatList,
@@ -43,7 +48,6 @@ import { FavoritePipe } from './pipes/favorite.pipe';
     MatDivider,
     MatRipple,
     MatIcon,
-    MatListAvatarCssMatStyler,
     MatTooltip,
     MatLabel,
     MatFormField,
@@ -53,7 +57,9 @@ import { FavoritePipe } from './pipes/favorite.pipe';
     MatButton,
     NavbarComponent,
     HomeWorldPipe,
-    FavoritePipe
+    FavoritePipe,
+    PersonComponent,
+    PersonPipe
   ]
 })
 export class SharedModule { }

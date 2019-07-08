@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* global drag an drop style */
+.cdk-drag {
+    &.cdk-drag-preview {
+        opacity: 0.5;
+        font-size: .75rem;
+
+        h3 {
+            margin: 0;
+        }
+
+        .mat-icon {
+            display: none;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { PeopleRequest } from '../models/people.model';
+import { PeopleRequest, People } from '../models/people.model';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Planet } from '../models/planet.model';
@@ -31,6 +31,13 @@ export class ApiService {
 
   getPlanet(id: number): Observable<Planet> {
     return this.http.get<Planet>(`${this.swapiUrl}planets/${id}?format=json`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getPerson(id: number): Observable<People> {
+    return this.http.get<People>(`${this.swapiUrl}people/${id}?format=json`)
       .pipe(
         catchError(this.handleError)
       );

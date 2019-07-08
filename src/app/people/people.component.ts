@@ -22,7 +22,7 @@ export class PeopleComponent implements OnInit {
   searchForm: FormGroup;
   isSearching: boolean = false;
 
-  constructor(private apiService: ApiService, private favoritesService: FavoritesService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.createSearchForm();
@@ -51,14 +51,6 @@ export class PeopleComponent implements OnInit {
     this.page = evt.pageIndex + 1;
 
     this.loadPeople();
-  }
-
-  onClickFavorite(person: People) {
-    if (this.favoritesService.has(person.url)) {
-      this.favoritesService.remove(person.url);
-    } else {
-      this.favoritesService.add(person.url);
-    }
   }
 
   onSubmitForm() {
